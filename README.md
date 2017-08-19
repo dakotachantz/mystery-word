@@ -37,9 +37,9 @@ When a game ends, ask the user if they want to play again. The game begins again
 
 You do not have to use these mockups. They are only a suggested way to lay out your application. Using them can let you focus on the programming parts of this assignments without worrying about layout, however.
 
-![The game at the start:]()
-![Mid-game:]()
-![At the end of the game:]()
+![The game at the start:](https://github.com/dakotachantz/mystery-word/blob/master/mockups/mockup-start-game.png)
+![Mid-game:](https://github.com/dakotachantz/mystery-word/blob/master/mockups/mockup-mid-game.png)
+![At the end of the game:](https://github.com/dakotachantz/mystery-word/blob/master/mockups/mockup-end-game.png)
 
 ## Hard Mode
 
