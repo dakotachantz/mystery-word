@@ -1,4 +1,91 @@
+@font-face {
+    font-family: tagtype-freefont;
+    src: url("../fonts/tagtype-freefont.ttf");
+}
+
 body {
     margin: 0;
-    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-image: url("../img/graffiti-background.jpeg");
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(24, 43, 43, .3);
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+h1 {
+    font-family: tagtype-freefont;
+    font-size: 5em;
+    margin: .5em;
+}
+
+h2 {
+    font-family: tagtype-freefont;
+    font-size: 4em;
+    margin: .5em;
+}
+
+p {
+    font-family: tagtype-freefont;
+    font-size: 3em;
+}
+
+button {
+    font-size: 1.5em;
+    border-radius: 30px 30px 30px 30px;
+    padding: 1em;
+    color: whitesmoke;
+    border: 2px solid darkslategray;
+    width: 28vw;
+    cursor: pointer;
+    outline: none;
+    background-color: rgba(24, 43, 43, .05);
+    transition: .4s ease;
+}
+
+button:hover {
+    background-color: #182B2B;
+    transform: scale(1.1);
+}
+
+input {
+    font-size: 1.5em;
+    outline-color: #1D3333;
+    flex: 3;
+    margin: 1em;
+    text-align: center;
+}
+
+.guess-button {
+    padding: 0;
+    margin: 0 2em 1em 2em;
+    margin: 1em;
+    flex: 2;
+}
+
+form {
+    margin: 1em;
+}
+
+.guess-form {
+    display: flex;
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
 }
