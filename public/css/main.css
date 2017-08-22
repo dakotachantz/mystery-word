@@ -31,17 +31,20 @@ h1 {
     font-family: tagtype-freefont;
     font-size: 5em;
     margin: .5em;
+    text-shadow: 6px 6px 0px rgba(24, 43, 43, 0.4);
 }
 
 h2 {
     font-family: tagtype-freefont;
     font-size: 4em;
     margin: .5em;
+    text-shadow: 6px 6px 0px rgba(24, 43, 43, 0.4);
 }
 
 p {
     font-family: tagtype-freefont;
     font-size: 3em;
+    text-shadow: 6px 6px 0px rgba(24, 43, 43, 0.3);
 }
 
 button {
@@ -64,17 +67,33 @@ button:hover {
 
 input {
     font-size: 1.5em;
-    outline-color: #1D3333;
-    flex: 3;
+    /* outline-color: #1D3333; */
+    flex: 2;
     margin: 1em;
     text-align: center;
+    transition: .5s ease;
+    background-color: rgba(24, 43, 43, .0);
+    border: none;
+    border-bottom: 1px solid white;
+    color: whitesmoke;
+    outline: none;
+    padding: .5em;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+input:focus {
+    flex: 5;
 }
 
 .guess-button {
-    padding: 0;
+    padding: .5em;
     margin: 0 2em 1em 2em;
     margin: 1em;
     flex: 2;
+    background-color: #1D3333;
 }
 
 form {
@@ -83,7 +102,7 @@ form {
 
 .guess-form {
     display: flex;
-    background-color: blue;
+    /* background-color: blue; */
     justify-content: center;
     align-items: center;
     width: 80vw;

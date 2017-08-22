@@ -1,10 +1,3 @@
-const fs = require('fs');
-const words = fs.readFileSync("/usr/share/dict/words", "utf-8").toLowerCase().split("\n");
 
-function randomWord() {
-    return words[Math.floor(Math.random() * 234936)].toUpperCase().split("");
-}
-
-console.log(randomWord());
 
 

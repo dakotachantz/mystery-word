@@ -5,6 +5,8 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 const sessionConfig = require("./sessionConfig");
+const gameFuncs = require("./game-logic/gameFuncs");
+
 const app = express();
 const port = process.env.PORT || 7777;
 const fs = require("fs");
@@ -23,7 +25,6 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session(sessionConfig));
 
-
 // GAME LOGIC
 let game = {};
 let guessCounter = 8;
@@ -32,15 +33,6 @@ let guessArray = [];
 let displayArray = [];
 let userDisplayGuessed = " ";
 let answerArray = [];
-
-game = {
-    guessCounter: guessCounter,
-    mysteryWord: mysteryWord,
-    guessArray: guessArray,
-    displayArray: displayArray,
-    userDisplayGuessed: userDisplayGuessed
-}
-
 
 const randomWord = () => {
     return words[Math.floor(Math.random() * 234936)].toUpperCase().split("");
@@ -64,6 +56,13 @@ const startGame = () => {
     return game;
 }
 
+game = {
+    guessCounter: guessCounter,
+    mysteryWord: mysteryWord,
+    guessArray: guessArray,
+    displayArray: displayArray,
+}
+
 const resetGame = () => {
     //do stuff
 }
@@ -85,15 +84,16 @@ app.get("/game", (req, res) => {
 
 app.post("/guess", (req, res) => {
     let guess = req.body.guess.toUpperCase();
-    console.log(guess);
+
+    let validLetter = /^[A-Za-z]+$/;
 
     if (guess.length < 1) {
-        promptLetter();
+        // promptLetter();
         console.log("please enter a letter to guess");
     } else if (guess.length > 1) {
-        promptEnter1Letter();
+        // promptEnter1Letter();
         console.log("please only enter one letter at a time");
-    } else if (isCorrect(guess)) {
+    } else if (isNotCorrect(guess)) {
         saveGuess(guess);
     } else {
         displayLetterAtPosition(guess);
@@ -102,13 +102,18 @@ app.post("/guess", (req, res) => {
     game.guessArray.join(" ");
     res.redirect("/game");
 });
-function isCorrect(guess) {
+
+function isNotCorrect(guess) {
     return mysteryWord.indexOf(guess) < 0;
 }
+
 function saveGuess(guess) {
     game.guessArray.push(guess);
     game.guessCounter -= 1;
     console.log(game.guessCounter);
+    if (game.guessCounter === 0) {
+        console.log("You ran out of guesses!!!! Would you like to try your luck again?");
+    }
 }
 
 function displayLetterAtPosition(guess) {
@@ -120,7 +125,10 @@ function displayLetterAtPosition(guess) {
     game.guessArray.push(guess);
 }
 
+
 // LISTEN
 app.listen(port, () => {
     console.log('Server running on PORT:', port);
 });
+
+module.exports = game;
