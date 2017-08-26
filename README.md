@@ -1,6 +1,6 @@
 # Mystery Word Game
 
-The Iron Yard Weekly Project: Build a game with Node and Express
+The Iron Yard Weekly Project: Build a game with Node and Express 
 
 You will implement the game Mystery Word as a web application. In your game, you will be playing against the computer.
 
@@ -40,11 +40,3 @@ You do not have to use these mockups. They are only a suggested way to lay out y
 ![The game at the start:](https://github.com/dakotachantz/mystery-word/blob/master/mockups/mockup-start-game.png)
 ![Mid-game:](https://github.com/dakotachantz/mystery-word/blob/master/mockups/mockup-mid-game.png)
 ![At the end of the game:](https://github.com/dakotachantz/mystery-word/blob/master/mockups/mockup-end-game.png)
-
-## Hard Mode
-
-* Let the user choose a level of difficulty at the beginning of the program. Easy mode only has words of 4-6 characters; normal mode only has words of 6-8 characters; hard mode only has words of 8+ characters.
-
-* If a user wins, ask for their name and create a page that shows all the winners so far.
-
-* If a user wins, ask for their name and optionally an image to upload. Show their image on the winners page.

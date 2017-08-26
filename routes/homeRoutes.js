@@ -14,5 +14,4 @@ homeRoutes.post("/", (req, res) => {
     return res.render("game", { game: game });
 });
 
-
 module.exports = homeRoutes;
