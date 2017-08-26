@@ -5,16 +5,10 @@ const func = require("../game-logic/gameFuncs");
 
 guessRoutes.post("/", (req, res) => {
     let guess = req.body.guess.toUpperCase();
-
-    let validLetter = /^[A-Za-z]+$/;
-
-    if (guess.length < 1) {
-        // promptLetter();
-        console.log("please enter a letter to guess");
-    } else if (guess.length > 1) {
-        // promptEnter1Letter();
-        console.log("please only enter one letter at a time");
-    } else if (func.isNotCorrect(guess)) {
+    if (game.guessArray.indexOf(guess) > -1) {
+        return res.render("game", { game: game, errors: ["You already guessed that letter!"] });
+    }
+    if (func.isNotCorrect(guess)) {
         func.saveGuess(guess);
     } else {
         func.displayLetterAtPosition(guess);

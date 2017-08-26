@@ -5,7 +5,6 @@ const word = require("./wordFunc");
 function startGame() {
     mysteryWord = word.randomWord();
     console.log(mysteryWord);
-
     for (let i = 0; i < mysteryWord.length; i++) {
         game.displayArray.push("_");
     }
@@ -14,7 +13,11 @@ function startGame() {
 }
 
 function resetGame() {
-    //do stuff
+    game.displayArray = [];
+    game.mysteryWord;
+    game.guessArray = [];
+    game.guessCounter = 8;
+    game.gameOver = false;
 }
 
 function isNotCorrect(guess) {
@@ -24,9 +27,6 @@ function isNotCorrect(guess) {
 function saveGuess(guess) {
     game.guessArray.push(guess);
     game.guessCounter -= 1;
-    if (game.guessCounter === 0) {
-        console.log("You ran out of guesses!!!! Would you like to try your luck again?");
-    }
 }
 
 function displayLetterAtPosition(guess) {
@@ -35,7 +35,7 @@ function displayLetterAtPosition(guess) {
             game.displayArray[index] = mysteryWord[index];
         }
     });
-    game.guessArray.push(guess);
+    return game.guessArray.push(guess);
 }
 
 module.exports = {

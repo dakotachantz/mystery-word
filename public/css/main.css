@@ -18,7 +18,7 @@ body {
 .container {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(24, 43, 43, .3);
+    background-color: rgba(24, 43, 43, .4);
 }
 
 header {
@@ -39,6 +39,13 @@ h2 {
     font-size: 4em;
     margin: .5em;
     text-shadow: 6px 6px 0px rgba(24, 43, 43, 0.4);
+}
+
+h4 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: lighter;
+    font-size: 1.2em;
+    margin: 0 auto;
 }
 
 p {
@@ -84,14 +91,22 @@ input {
     color: white;
 }
 
-input:focus {
-    flex: 5;
-}
+
+/* input:focus {
+    flex: 3;
+} */
 
 .guess-button {
     padding: .5em;
     margin: 0 2em 1em 2em;
     margin: 1em;
+    flex: 2;
+    background-color: #1D3333;
+}
+
+.playagain-button {
+    padding: 1em;
+    margin: .5em;
     flex: 2;
     background-color: #1D3333;
 }
@@ -102,9 +117,35 @@ form {
 
 .guess-form {
     display: flex;
-    /* background-color: blue; */
     justify-content: center;
     align-items: center;
     width: 80vw;
+    margin: 0 auto;
+}
+
+.playagain {
+    background-color: rgba(24, 43, 43, .55);
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.playagain>h2 {
+    margin: 0.3em;
+}
+
+.playagain>h4 {
+    margin: .5em;
+}
+
+.errors {
+    font-size: 2em;
     margin: 0 auto;
 }

@@ -5,6 +5,8 @@ function randomWord() {
     return words[Math.floor(Math.random() * 234936)].toUpperCase().split("");
 }
 
+
+
 module.exports = { randomWord: randomWord }
 
 
