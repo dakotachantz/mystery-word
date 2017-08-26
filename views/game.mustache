@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess The Word</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body id="game-page">
+    <div class="container">
+        <header>
+            <h2>GUESS THE WORD</h2>
+            <h2>{{game.guessCounter}} guesses left</h2>
+        </header>
+        {{#game.gameOver}}
+        <section class="playagain">
+            {{#youWin}}
+            <h2>{{youWin}}</h2>
+            {{/youWin}} {{#youLose}}
+            <h2>{{youLose}}</h2>
+            {{/youLose}}
+            <h4>Your word was {{#mysteryWord}}{{.}} {{/mysteryWord}}</h4>
+            <form action="/game/playagain" method="post">
+                <button class="playagain-button" type="submit">Play Again?</button>
+            </form>
+        </section>
+        <section>
+            <p>{{#mysteryWord}}{{.}} {{/mysteryWord}}</p>
+        </section>
+        {{/game.gameOver}}{{^game.gameOver}}
+        <section>
+            <p>{{#game.displayArray}}{{.}} {{/game.displayArray}}</p>
+        </section>
+        {{/game.gameOver}} {{#errors}}
+        <p class="errors">{{errors}}</p>
+        {{/errors}}
+        <form class="guess-form" action="/guess" method="POST">
+            <input autocomplete="off" maxlength="1" pattern="[A-Za-z]{1}" type="text" name="guess" placeholder="Type a letter" required
+                autofocus>
+            <button class="guess-button" type="submit">Make Guess</button>
+        </form>
+        <section class="guessed">
+            <h2>Letters Guessed:</h2>
+            <p>{{#game.guessArray}}{{.}} {{/game.guessArray}}</p>
+        </section>
+    </div>
+</body>
+
+</html>
