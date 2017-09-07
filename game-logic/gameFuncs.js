@@ -4,7 +4,6 @@ const word = require("./wordFunc");
 
 function startGame() {
     mysteryWord = word.randomWord();
-    console.log(mysteryWord);
     for (let i = 0; i < mysteryWord.length; i++) {
         game.displayArray.push("_");
     }
